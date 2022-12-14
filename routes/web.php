@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+<<<<<<< HEAD
     return view('home', ['title' => 'Home']);
 })->name('home');
 
@@ -24,3 +25,9 @@ Route::post('login', [UserController::class, 'login_action'])->name('login.actio
 Route::get('password', [UserController::class, 'password'])->name('password');
 Route::post('password', [UserController::class, 'password_action'])->name('password.action');
 Route::get('logout', [UserController::class, 'logout'])->name('logout');
+=======
+    return view('welcome');
+});
+
+Route::get('/dash', 'App\Http\Controllers\DashboardController@index');
+>>>>>>> 1f457e680dc6c40ab033484132456a9ed411a1b8
