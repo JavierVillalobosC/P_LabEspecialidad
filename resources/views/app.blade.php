@@ -17,12 +17,10 @@ body {
 </head>
 
 <body>
-    
-    <div class = "container">
-        <h1 style = "position:relative; left:130px; top:2px;"> @yield('title',$title)</h1>
+    <div class="container">
+    <h1>@yield('title',$title)</h1>
         @yield('content')
     </div>
-    
 </body>
 
 </html>
