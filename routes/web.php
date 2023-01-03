@@ -24,11 +24,7 @@ Route::post('login', [UserController::class, 'login_action'])->name('login.actio
 Route::get('password', [UserController::class, 'password'])->name('password');
 Route::post('password', [UserController::class, 'password_action'])->name('password.action');
 Route::get('logout', [UserController::class, 'logout'])->name('logout');
-<<<<<<< HEAD
-
 Route::get('/dash', 'App\Http\Controllers\DashboardController@index');
 
 Route::resource('computadores', 'App\Http\Controllers\ComputadorController');
-=======
 Route::get('/dash', 'App\Http\Controllers\DashboardController@index');
->>>>>>> c112c729f633f22bcd0b7c902132ba42333c123a
