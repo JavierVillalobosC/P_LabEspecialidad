@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Http\Controllers;
 
-use App\Models\Administrador;
+
+use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -25,12 +27,12 @@ class AdminController extends Controller
             'password_confirm' => 'required|same:password',
         ]);
 
-        $Admin = new Administrador([
+        $user = new Admin([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-        $Admin->save();
+        $user->save();
 
         return redirect()->route('login')->with('success', 'Registration success. Please login!');
     }
@@ -69,9 +71,9 @@ class AdminController extends Controller
             'old_password' => 'required|current_password',
             'new_password' => 'required|confirmed',
         ]);
-        $Admin = Administrador::find(Auth::id());
-        $Admin->password = Hash::make($request->new_password);
-        $Admin->save();
+        $user = Admin::find(Auth::id());
+        $user->password = Hash::make($request->new_password);
+        $user->save();
         $request->session()->regenerate();
         return back()->with('success', 'Constraseña cambiada con exito');
     }
@@ -83,5 +85,4 @@ class AdminController extends Controller
         $request->session()->regenerateToken();
         return redirect('/');
     }
-
 }
