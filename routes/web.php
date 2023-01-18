@@ -4,7 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
 use  App\Http\Controllers\ComputadorController;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,3 +34,7 @@ Route::get('computadores', [ComputadorController::class, 'index'])->name('comput
 Route::get('computadores/create', [ComputadorController::class, 'create'])->name('create');
 Route::get('computadores/edit', [ComputadorController::class, 'edit'])->name('edit');
 Route::get('/dash', 'App\Http\Controllers\DashboardController@index');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
