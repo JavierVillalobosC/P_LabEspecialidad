@@ -13,7 +13,7 @@ class AdminController extends Controller
     public function register()
     {
         $data['title'] = 'Registro';
-        return view('user/register', $data);
+        return view('Admin/register', $data);
 
     }
 
@@ -40,7 +40,7 @@ class AdminController extends Controller
     public function login()
     {
         $data['title'] = '';
-        return view('user/login', $data);
+        return view('Admin/login', $data);
     }
 
     public function login_action(Request $request)
@@ -62,7 +62,7 @@ class AdminController extends Controller
     public function password()
     {
         $data['title'] = 'Cambiar contraseña';
-        return view('user/password', $data);
+        return view('Admin/password', $data);
     }
 
     public function password_action(Request $request)

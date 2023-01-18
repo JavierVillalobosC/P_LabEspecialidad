@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
-
+use App\Http\Controllers\UserController;
 use  App\Http\Controllers\ComputadorController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('user/home', ['title' => '']);
+    return view('Admin/home', ['title' => '']);
 })->name('home');
 
 Route::get('register', [AdminController::class, 'register'])->name('register');

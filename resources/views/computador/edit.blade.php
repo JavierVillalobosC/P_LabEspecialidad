@@ -3,7 +3,7 @@
 @section('contenido')
 <h2>Editar Registros</h2>
 
-<form action="/computadores/edit/{{$computador->id}}" method="POST">
+<form action="/computadores/{{$computador->id}}" method="POST">
     @csrf
     @method('PUT')
     <div class="mt-3">
