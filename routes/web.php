@@ -26,8 +26,8 @@ Route::get('/', function () {
     return view('home', ['title' => '']);
 })->name('home');
 
-Route::get('register', [UserController::class, 'register'])->name('register');
-Route::post('register', [UserController::class, 'register_action'])->name('register.action');
+Route::get('register_user', [UserController::class, 'register_user'])->name('register_user');
+Route::post('register_user', [UserController::class, 'register_action'])->name('register.action');
 Route::get('login', [UserController::class, 'login'])->name('login');
 Route::post('login', [UserController::class, 'login_action'])->name('login.action');
 Route::get('password', [UserController::class, 'password'])->name('password');

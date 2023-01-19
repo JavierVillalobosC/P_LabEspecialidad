@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    public function register()
+    public function register_user()
     {
         $data['title'] = 'Registro';
         return view('user/register', $data);
