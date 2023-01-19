@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('ArquitecturaDigitales', function (Blueprint $table) {
-            $table->foreign(['user_id'], 'ArquitecturaDigitales_ibfk_1')->references(['user_id'])->on('Administrador')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+        Schema::table('Redes materiales', function (Blueprint $table) {
+            $table->foreign(['user_id'], 'Redes materiales_ibfk_1')->references(['user_id'])->on('Usuarios')->onUpdate('NO ACTION')->onDelete('NO ACTION');
         });
     }
 
@@ -25,8 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('ArquitecturaDigitales', function (Blueprint $table) {
-            $table->dropForeign('ArquitecturaDigitales_ibfk_1');
+        Schema::table('Redes materiales', function (Blueprint $table) {
+            $table->dropForeign('Redes materiales_ibfk_1');
         });
     }
 };

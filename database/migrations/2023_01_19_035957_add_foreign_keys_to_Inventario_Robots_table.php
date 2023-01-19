@@ -13,13 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('computadors', function (Blueprint $table) {
-            $table->id();
-            $table->string('modelo', 100);
-            $table->string('descripcion', 100);
-            $table->string('estatus', 100);
-            $table->integer('cantidad');
-            $table->timestamps();
+        Schema::table('Inventario Robots', function (Blueprint $table) {
+            $table->foreign(['user_id'], 'Inventario Robots_ibfk_1')->references(['user_id'])->on('Usuarios')->onUpdate('NO ACTION')->onDelete('NO ACTION');
         });
     }
 
@@ -30,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('computadors');
+        Schema::table('Inventario Robots', function (Blueprint $table) {
+            $table->dropForeign('Inventario Robots_ibfk_1');
+        });
     }
 };

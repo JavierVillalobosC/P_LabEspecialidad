@@ -13,14 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('Prestamo', function (Blueprint $table) {
+        Schema::create('Usuarios', function (Blueprint $table) {
             $table->comment('');
-            $table->integer('ID_Prestamo')->primary();
-            $table->date('fecha');
-            $table->time('hora');
-            $table->date('fecha_devolucion');
-            $table->integer('ID')->index('ID');
-            $table->bigInteger('user_id')->index('user_id');
+            $table->bigInteger('user_id', true);
+            $table->string('name');
+            $table->string('email')->unique('users_email_unique');
+            $table->string('password');
+            $table->timestamps();
         });
     }
 
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Prestamo');
+        Schema::dropIfExists('Usuarios');
     }
 };

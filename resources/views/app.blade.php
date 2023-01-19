@@ -31,8 +31,7 @@
 <body>
     <div class="container">
         <header>
-           
-            
+
         </header>
         <h1 text-center>@yield('title',$title)</h1>
         @yield('content')

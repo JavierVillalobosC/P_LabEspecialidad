@@ -12,17 +12,11 @@
     <div class="Home-box-body">
     <div id="" class="">
                 
-                <img class="img-fluid mx-auto d-block rounded"
-                    src="img/ubb_logo_new.png"/>
+                
      </div>
      <p style = "position:relative; left:110px; top:150px;">Bienvenid@  <b>{{ Auth::user()->name }}</b></p>
 
-    <a style = "position:relative; left:500px; top:-160px;" class="btn btn-primary" href="{{ route('password') }}">
-    Cambiar contraseña
-    </a>
-    <a style = "position:relative; left:520px; top:-160px;" class="btn btn-danger" href="{{ route('logout') }}">
-    Cerrar sesión
-    </a>
+   
     <a style = "position:relative; left:-450px; top:-100px;" class="btn btn-primary" href="{{ route('computadores') }}">
     Ver Computadores
     </a>

@@ -13,15 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('Inventario portatiles propiedad', function (Blueprint $table) {
+        Schema::create('Prestamo', function (Blueprint $table) {
             $table->comment('');
-            $table->integer('ID_Portatilesp')->primary();
-            $table->string('Tag', 200);
-            $table->string('Modelo', 200);
-            $table->integer('Inventario');
-            $table->string('Especificaciones', 200);
-            $table->string('Carrera', 200);
-            $table->string('Estado', 200);
+            $table->integer('ID_Prestamo', true);
+            $table->date('fecha');
+            $table->time('hora');
+            $table->date('fecha_devolucion');
             $table->bigInteger('user_id')->index('user_id');
         });
     }
@@ -33,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Inventario portatiles propiedad');
+        Schema::dropIfExists('Prestamo');
     }
 };

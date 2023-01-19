@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('Inventario portatiles propiedad', function (Blueprint $table) {
-            $table->foreign(['user_id'], 'Inventario portatiles propiedad_ibfk_1')->references(['user_id'])->on('Administrador')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+            $table->foreign(['user_id'], 'Inventario portatiles propiedad_ibfk_1')->references(['user_id'])->on('Usuarios')->onUpdate('NO ACTION')->onDelete('NO ACTION');
         });
     }
 

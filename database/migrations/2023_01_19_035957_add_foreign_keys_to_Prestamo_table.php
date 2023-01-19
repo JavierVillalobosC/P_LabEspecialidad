@@ -14,8 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('Prestamo', function (Blueprint $table) {
-            $table->foreign(['user_id'], 'Prestamo_ibfk_1')->references(['user_id'])->on('Administrador')->onUpdate('NO ACTION')->onDelete('NO ACTION');
-            $table->foreign(['ID'], 'Prestamo_ibfk_2')->references(['ID'])->on('Usuarios')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+            $table->foreign(['user_id'], 'Prestamo_ibfk_1')->references(['user_id'])->on('Usuarios')->onUpdate('NO ACTION')->onDelete('NO ACTION');
         });
     }
 
@@ -28,7 +27,6 @@ return new class extends Migration
     {
         Schema::table('Prestamo', function (Blueprint $table) {
             $table->dropForeign('Prestamo_ibfk_1');
-            $table->dropForeign('Prestamo_ibfk_2');
         });
     }
 };

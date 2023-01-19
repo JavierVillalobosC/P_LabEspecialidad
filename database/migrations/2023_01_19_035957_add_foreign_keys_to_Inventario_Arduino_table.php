@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('Redes materiales', function (Blueprint $table) {
-            $table->foreign(['user_id'], 'Redes materiales_ibfk_1')->references(['user_id'])->on('Administrador')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+        Schema::table('Inventario Arduino', function (Blueprint $table) {
+            $table->foreign(['user_id'], 'Inventario Arduino_ibfk_1')->references(['user_id'])->on('Usuarios')->onUpdate('NO ACTION')->onDelete('NO ACTION');
         });
     }
 
@@ -25,8 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('Redes materiales', function (Blueprint $table) {
-            $table->dropForeign('Redes materiales_ibfk_1');
+        Schema::table('Inventario Arduino', function (Blueprint $table) {
+            $table->dropForeign('Inventario Arduino_ibfk_1');
         });
     }
 };

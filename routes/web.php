@@ -1,10 +1,16 @@
 <?php
 
-use App\Http\Controllers\AdminController;
+
 use App\Http\Controllers\UserController;
 use  App\Http\Controllers\ComputadorController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
+
+use App\Http\Controllers\Auth\ConfirmPasswordController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\Auth\VerificationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,16 +23,16 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('Admin/home', ['title' => '']);
+    return view('home', ['title' => '']);
 })->name('home');
 
-Route::get('register', [AdminController::class, 'register'])->name('register');
-Route::post('register', [AdminController::class, 'register_action'])->name('register.action');
-Route::get('login', [AdminController::class, 'login'])->name('login');
-Route::post('login', [AdminController::class, 'login_action'])->name('login.action');
-Route::get('password', [AdminController::class, 'password'])->name('password');
-Route::post('password', [AdminController::class, 'password_action'])->name('password.action');
-Route::get('logout', [AdminController::class, 'logout'])->name('logout');
+Route::get('register', [UserController::class, 'register'])->name('register');
+Route::post('register', [UserController::class, 'register_action'])->name('register.action');
+Route::get('login', [UserController::class, 'login'])->name('login');
+Route::post('login', [UserController::class, 'login_action'])->name('login.action');
+Route::get('password', [UserController::class, 'password'])->name('password');
+Route::post('password', [UserController::class, 'password_action'])->name('password.action');
+Route::get('logout', [UserController::class, 'logout'])->name('logout');
 Route::get('/dash', 'App\Http\Controllers\DashboardController@index');
 
 
@@ -35,6 +41,32 @@ Route::get('computadores/create', [ComputadorController::class, 'create'])->name
 Route::get('computadores/edit', [ComputadorController::class, 'edit'])->name('edit');
 Route::get('/dash', 'App\Http\Controllers\DashboardController@index');
 
-Auth::routes();
+    // Authentication Routes...
+Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('login', [LoginController::class,'login']);
+Route::post('logout', [LoginController::class,'logout'])->name('logout');
+
+    // Registration Routes...
+Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+Route::post('register', [RegisterController::class, 'register']);
+
+    // Password Reset Routes...
+Route::get('password/reset', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
+Route::post('password/email', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
+Route::get('password/reset/{token}', [ForgotPasswordController::class, 'showResetForm'])->name('password.reset');
+Route::post('password/reset', [ForgotPasswordController::class, 'reset'])->name('password.update');
+
+    // Confirm Password 
+Route::get('password/confirm', [ConfirmPasswordController::class, 'showConfirmForm'])->name('password.confirm');
+Route::post('password/confirm', [ConfirmPasswordController::class, 'confirm']);
+
+    // Email Verification Routes...
+Route::get('email/verify', [VerificationController::class, 'show'])->name('verification.notice');
+Route::get('email/verify/{id}/{hash}', [VerificationController::class, 'verify'])->name('verification.verify');
+Route::get('email/resend',  [VerificationController::class, 'resend'])->name('verification.resend');
+    
+    // Home
+
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

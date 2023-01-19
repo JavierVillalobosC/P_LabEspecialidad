@@ -13,8 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('proyecto', function (Blueprint $table) {
-            $table->foreign(['user_id'], 'proyecto_ibfk_1')->references(['user_id'])->on('Administrador')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+        Schema::create('users', function (Blueprint $table) {
+            $table->comment('');
+            $table->bigIncrements('user_id');
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('proyecto', function (Blueprint $table) {
-            $table->dropForeign('proyecto_ibfk_1');
-        });
+        Schema::dropIfExists('users');
     }
 };

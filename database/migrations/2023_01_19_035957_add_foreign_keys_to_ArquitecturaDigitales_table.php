@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('Usuarios', function (Blueprint $table) {
-            $table->foreign(['user_id'], 'Usuarios_ibfk_1')->references(['user_id'])->on('Administrador')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+        Schema::table('ArquitecturaDigitales', function (Blueprint $table) {
+            $table->foreign(['user_id'], 'ArquitecturaDigitales_ibfk_1')->references(['user_id'])->on('Usuarios')->onUpdate('NO ACTION')->onDelete('NO ACTION');
         });
     }
 
@@ -25,8 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('Usuarios', function (Blueprint $table) {
-            $table->dropForeign('Usuarios_ibfk_1');
+        Schema::table('ArquitecturaDigitales', function (Blueprint $table) {
+            $table->dropForeign('ArquitecturaDigitales_ibfk_1');
         });
     }
 };
