@@ -36,8 +36,9 @@ Route::get('logout', [UserController::class, 'logout'])->name('logout');
 Route::get('/dash', 'App\Http\Controllers\DashboardController@index');
 
 
-Route::get('computadores', [ComputadorController::class, 'index'])->name('computadores');
-Route::get('computadores/create', [ComputadorController::class, 'create'])->name('create');
+Route::get('computador', [ComputadorController::class, 'index'])->name('index');
+Route::get('computador/create', [ComputadorController::class, 'create'])->name('create');
+Route::post('computador/create_action', [ComputadorController::class, 'create_action'])->name('create.action');
 Route::get('computadores/edit', [ComputadorController::class, 'edit'])->name('edit');
 Route::get('/dash', 'App\Http\Controllers\DashboardController@index');
 
@@ -56,7 +57,7 @@ Route::post('password/email', [ForgotPasswordController::class, 'sendResetLinkEm
 Route::get('password/reset/{token}', [ForgotPasswordController::class, 'showResetForm'])->name('password.reset');
 Route::post('password/reset', [ForgotPasswordController::class, 'reset'])->name('password.update');
 
-    // Confirm Password 
+    // Confirm Password
 Route::get('password/confirm', [ConfirmPasswordController::class, 'showConfirmForm'])->name('password.confirm');
 Route::post('password/confirm', [ConfirmPasswordController::class, 'confirm']);
 
