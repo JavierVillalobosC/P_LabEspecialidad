@@ -34,9 +34,9 @@ class ComputadorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function create_action (Request $request)
     {
-        request()->validate([
+        $request->validate([
             'ID_Portatilesp' => 'required',
             'Tag' => 'required',
             'Modelo' => 'required',
@@ -45,19 +45,21 @@ class ComputadorController extends Controller
             'Carrera' =>'required',
             'Estado' =>'required',
         ]);
-        $computadores = new Computador();
+        $computadores = new Computador([
+            'ID_portatilesp' => $request->ID_portatilesp,
+            'Tag' => $request->Tag,
+            'Modelo' => $request->Modelo,
+            'Inventario' => $request->Inventario,
+            'Especificaciones' => $request->Especificaciones,
+            'Carrera' => $request->Carrera,
+            'Estado' => $request->Estado,
 
-        $computadores->ID_portatilesp = $request->get('ID_portatilesp');
-        $computadores->Tag = $request->get('Tag');
-        $computadores->Modelo = $request->get('Modelo');
-        $computadores->Inventario = $request->get('Inventario');
-        $computadores->Especificaciones = $request->get('Especificaciones');
-        $computadores->Carrera = $request->get('Carrera');
-        $computadores->Estado = $request->get('Estado');
+        ]);
+
 
         $computadores->save();
-
-        return redirect('/computadores');
+        return redirect()->route('computador')->with('success', 'Registration success. Please login!');
+        
 
     }
 
@@ -105,7 +107,7 @@ class ComputadorController extends Controller
 
         $computador->save();
 
-        return redirect('/computadores');
+        return redirect('/computador');
     }
 
     /**
@@ -118,6 +120,6 @@ class ComputadorController extends Controller
     {
         $computador = Computador::find($id);
         $computador->delete();
-        return redirect('/computadores');
+        return redirect('/computador');
     }
 }
