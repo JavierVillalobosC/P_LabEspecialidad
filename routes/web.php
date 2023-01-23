@@ -2,7 +2,7 @@
 
 
 use App\Http\Controllers\UserController;
-use  App\Http\Controllers\ComputadorController;
+use App\Http\Controllers\ComputadorController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Auth\ConfirmPasswordController;
@@ -23,8 +23,8 @@ use App\Http\Controllers\Auth\VerificationController;
 */
 
 Route::get('/', function () {
-    return view('home', ['title' => '']);
-})->name('home');
+    return view('/layouts/plantilla');
+});
 
 Route::get('register_user', [UserController::class, 'register_user'])->name('register_user');
 Route::post('register_user', [UserController::class, 'register_action'])->name('register.action');
@@ -36,10 +36,10 @@ Route::get('logout', [UserController::class, 'logout'])->name('logout');
 Route::get('/dash', 'App\Http\Controllers\DashboardController@index');
 
 
-Route::get('computadores', [ComputadorController::class, 'index'])->name('computadores');
+/* Route::get('computadores', [ComputadorController::class, 'index'])->name('computadores');
 Route::get('computadores/create', [ComputadorController::class, 'create'])->name('create');
 Route::get('computadores/edit', [ComputadorController::class, 'edit'])->name('edit');
-Route::get('/dash', 'App\Http\Controllers\DashboardController@index');
+Route::get('/dash', 'App\Http\Controllers\DashboardController@index'); */
 
     // Authentication Routes...
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
@@ -70,3 +70,8 @@ Route::get('email/resend',  [VerificationController::class, 'resend'])->name('ve
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+    // Crud
+Route::resource('estados', App\Http\Controllers\EstadosController::class);
+Route::resource('computadores', App\Http\Controllers\ComputadorController::class);
+

@@ -1,4 +1,4 @@
-@extends('layouts.plantillabase');
+<!-- @extends('layouts.plantillabase');
 
 @section('contenido')
 <h2>Editar Registros</h2>
@@ -25,4 +25,4 @@
     <a href="/computadores" class="btn btn-secondary" tabindex="6">Cancelar</a>
     <button type="submit" class="btn btn-primary" tabindex="5">Guardar</button>
 </form>
-@endsection
+@endsection -->
