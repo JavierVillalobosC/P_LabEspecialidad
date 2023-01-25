@@ -3,7 +3,7 @@
 <div class="row mt-3">
     <div class="col-md-4 offset-md-4">
         <div class="d-grid mx-auto">
-            <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalComputadores">
+            <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalEstados">
                 <i class="fa-solid fa-circle-plus"></i> Añadir
             </button>
         </div>
@@ -40,7 +40,7 @@
                         <td>{{ $row->Carrera }}</td>
                         <td>{{ $row->id_estado }}</td>
                         <td>
-                            <a href="{{ url('estados',[$row]) }}" class="btn btn-warning"><i
+                            <a href="{{ url('computadores',[$row]) }}" class="btn btn-warning"><i
                                     class="fa-solid fa-edit"></i></a>
                         </td>
                         <td>
@@ -98,7 +98,7 @@
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text"><i class="fa-solid fa-laptop"></i></span>
-                        <select name=id_estado class="form-select" required>
+                        <select name="id_estado" class="form-select" required>
                             <option value="">Estado</option>
                             @foreach($estados as $row)
                             <option value="{{ $row->id}}">{{$row->estado}}</option>
