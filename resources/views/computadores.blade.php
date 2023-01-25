@@ -1,4 +1,4 @@
-@extends('/layouts/plantilla')
+@extends('layouts/plantilla')
 @section('contenido')
 <div class="row mt-3">
     <div class="col-md-4 offset-md-4">

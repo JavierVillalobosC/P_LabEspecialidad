@@ -18,8 +18,51 @@ class ComputadorController extends Controller
 
     public function create()
     {
-        //
+        return view('computador.create');
     }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function create_action (Request $request)
+    {
+        $request->validate([
+            'ID_Portatilesp' => 'required',
+            'Tag' => 'required',
+            'Modelo' => 'required',
+            'Invetario' => 'required',
+            'Especificaciones' =>'required',
+            'Carrera' =>'required',
+            'Estado' =>'required',
+        ]);
+        $computadores = new Computador([
+            'ID_portatilesp' => $request->ID_portatilesp,
+            'Tag' => $request->Tag,
+            'Modelo' => $request->Modelo,
+            'Inventario' => $request->Inventario,
+            'Especificaciones' => $request->Especificaciones,
+            'Carrera' => $request->Carrera,
+            'Estado' => $request->Estado,
+
+        ]);
+
+
+        $computadores->save();
+        return redirect()->route('computadores')->with('success', 'Registration success. Please login!');
+        
+
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    
 
 
     public function store(Request $request)
@@ -47,8 +90,18 @@ class ComputadorController extends Controller
     public function update(Request $request, $id)
     {
         $computador = Computador::find($id);
-        $computador->fill($request->input())->saveOrFail();
-        return redirect('computadores');
+
+        $computador->ID_portatilesp = $request->get('ID_portatilesp');
+        $computador->Tag = $request->get('Tag');
+        $computador->Modelo = $request->get('Modelo');
+        $computador->Inventario = $request->get('Inventario');
+        $computador->Especificaciones = $request->get('Especificaciones');
+        $computador->Carrera = $request->get('Carrera');
+        $computador->Estado = $request->get('Estado');
+
+        $computador->save();
+
+        return redirect('/computadores');
     }
 
 
@@ -56,6 +109,6 @@ class ComputadorController extends Controller
     {
         $computador = Computador::find($id);
         $computador->delete();
-        return redirect('computadores');
+        return redirect('/computadores');
     }
 }
