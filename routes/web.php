@@ -77,4 +77,5 @@ Route::resource('estados', App\Http\Controllers\EstadosController::class);
 Route::resource('computadores', App\Http\Controllers\ComputadorController::class);
 
 Route::resource('prestamo', App\Http\Controllers\PrestamoController::class);
+Route::resource('solicitud', App\Http\Controllers\SolicitudController::class);
 

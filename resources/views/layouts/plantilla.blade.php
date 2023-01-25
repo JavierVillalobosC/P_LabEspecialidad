@@ -34,9 +34,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/estados">Estados</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="/prestamo">Prestamos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/solicitud">Solicitudes</a>
                     </li>
                     <li class="nav-item dropdown">
                     @endguest
