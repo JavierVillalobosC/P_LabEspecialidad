@@ -33,6 +33,7 @@ class ComputadorController extends Controller
     public function show($id)
     {
         $computador = Computador::find($id);
+        $estados = Estados::all();
         return view('editComputador', compact('computador', 'estados'));
     }
 

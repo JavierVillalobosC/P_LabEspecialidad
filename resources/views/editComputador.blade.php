@@ -34,7 +34,7 @@
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text"><i class="fa-solid fa-laptop"></i></span>
-                        <select name=id_estado class="form-select" required>
+                        <select name="id_estado" class="form-select" required>
                             <option value="">Estado</option>
                             @foreach($estados as $row)
                                 @if ($row->id == $computador->id_estado)
