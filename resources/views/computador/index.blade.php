@@ -1,7 +1,7 @@
 <!-- @extends('layouts.plantillabase');
 
 @section('contenido')
-<a href = "computadores/create" class="btn btn-primary">CREAR</a>
+<a href = "computador/create" class="btn btn-primary">CREAR</a>
 <a class="btn btn-danger" href="{{ route('home') }}">Atras</a>
 <table class="table table-dark table-striped mt-4">
     <thead>

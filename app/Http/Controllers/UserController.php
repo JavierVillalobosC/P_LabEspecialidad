@@ -49,7 +49,7 @@ class UserController extends Controller
         ]);
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             $request->session()->regenerate();
-            return redirect()->route('home');
+            return redirect()->route('/');
         }
 
         return back()->withErrors([
@@ -81,7 +81,7 @@ class UserController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('/');
+        return redirect('/login');
     }
 
 }

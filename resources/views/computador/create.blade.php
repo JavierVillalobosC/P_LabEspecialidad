@@ -2,7 +2,7 @@
 
 @section('contenido')
 <h2>Crear Registros</h2>
-<form action="/computadores" method="POST">
+<form action="{{ route('create.action') }}"  method="POST">
     @csrf
     <div class="mt-3">
         <label for="" class="form-label">ID</label>
@@ -32,7 +32,7 @@
         <label for="" class="form-label">Estado</label>
         <input id="Estado" name="Estado" type="text" class="from-control" tabindex="4">
     </div>
-    <a href="/computadores" class="btn btn-secondary" tabindex="6">Cancelar</a>
+    <a href="/computador" class="btn btn-secondary" tabindex="6">Cancelar</a>
     <button type="submit" class="btn btn-primary" tabindex="5">Guardar</button>
 </form>
 @endsection -->

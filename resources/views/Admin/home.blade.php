@@ -1,4 +1,4 @@
-@extends('.')
+@extends('app')
 @section('content')
 @auth
 <div class="login-box">
