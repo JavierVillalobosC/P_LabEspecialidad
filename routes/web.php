@@ -32,14 +32,15 @@ Route::get('login', [UserController::class, 'login'])->name('login');
 Route::post('login', [UserController::class, 'login_action'])->name('login.action');
 Route::get('password', [UserController::class, 'password'])->name('password');
 Route::post('password', [UserController::class, 'password_action'])->name('password.action');
-Route::get('logout', [UserController::class, 'logout'])->name('logout');
+Route::get('logout', [UserController::class, 'logout'])->name('logoutt');
 Route::get('/dash', 'App\Http\Controllers\DashboardController@index');
 
 
-/* Route::get('computadores', [ComputadorController::class, 'index'])->name('computadores');
-Route::get('computadores/create', [ComputadorController::class, 'create'])->name('create');
+Route::get('computador', [ComputadorController::class, 'index'])->name('index');
+Route::get('computador/create', [ComputadorController::class, 'create'])->name('create');
+Route::post('computador/create_action', [ComputadorController::class, 'create_action'])->name('create.action');
 Route::get('computadores/edit', [ComputadorController::class, 'edit'])->name('edit');
-Route::get('/dash', 'App\Http\Controllers\DashboardController@index'); */
+Route::get('/dash', 'App\Http\Controllers\DashboardController@index');
 
     // Authentication Routes...
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
@@ -56,7 +57,7 @@ Route::post('password/email', [ForgotPasswordController::class, 'sendResetLinkEm
 Route::get('password/reset/{token}', [ForgotPasswordController::class, 'showResetForm'])->name('password.reset');
 Route::post('password/reset', [ForgotPasswordController::class, 'reset'])->name('password.update');
 
-    // Confirm Password 
+    // Confirm Password
 Route::get('password/confirm', [ConfirmPasswordController::class, 'showConfirmForm'])->name('password.confirm');
 Route::post('password/confirm', [ConfirmPasswordController::class, 'confirm']);
 
@@ -74,4 +75,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
     // Crud
 Route::resource('estados', App\Http\Controllers\EstadosController::class);
 Route::resource('computadores', App\Http\Controllers\ComputadorController::class);
+
+Route::resource('prestamo', App\Http\Controllers\PrestamoController::class);
 

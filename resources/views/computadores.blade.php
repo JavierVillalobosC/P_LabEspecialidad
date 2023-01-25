@@ -3,7 +3,7 @@
 <div class="row mt-3">
     <div class="col-md-4 offset-md-4">
         <div class="d-grid mx-auto">
-            <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalEstados">
+            <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalComputadores">
                 <i class="fa-solid fa-circle-plus"></i> Añadir
             </button>
         </div>
@@ -40,7 +40,7 @@
                         <td>{{ $row->Carrera }}</td>
                         <td>{{ $row->id_estado }}</td>
                         <td>
-                            <a href="{{ url('computadores',[$row]) }}" class="btn btn-warning"><i
+                            <a href="{{ url('estados',[$row]) }}" class="btn btn-warning"><i
                                     class="fa-solid fa-edit"></i></a>
                         </td>
                         <td>
@@ -83,7 +83,7 @@
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text"><i class="fa-solid fa-boxes-stacked"></i></span>
-                        <input type="number" name="Inventario" class="form-control" maxlength="50"
+                        <input type="text" name="Inventario" class="form-control" maxlength="50"
                             placeholder="Inventario" required>
                     </div>
                     <div class="input-group mb-3">
