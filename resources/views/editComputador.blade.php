@@ -22,7 +22,7 @@
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text"><i class="fa-solid fa-boxes-stacked"></i></span>
-                        <input type="text" name="Inventario" value="{{ $computador->Inventario}}" class="form-control" maxlength="50" placeholder="Inventario" required>
+                        <input type="number" name="Inventario" value="{{ $computador->Inventario}}" class="form-control" maxlength="50" placeholder="Inventario" required>
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text"><i class="fa-solid fa-laptop"></i></span>

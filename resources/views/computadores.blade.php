@@ -83,7 +83,7 @@
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text"><i class="fa-solid fa-boxes-stacked"></i></span>
-                        <input type="text" name="Inventario" class="form-control" maxlength="50"
+                        <input type="number" name="Inventario" class="form-control" maxlength="50"
                             placeholder="Inventario" required>
                     </div>
                     <div class="input-group mb-3">
