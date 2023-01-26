@@ -6,15 +6,15 @@ use Illuminate\Http\Request;
 use App\Models\Computador;
 use App\Models\Estados;
 use App\Models\prestamo;
-
+use App\Models\User;
 class PrestamoController extends Controller
 {
 
     public function index()
     {
         $prestamos = prestamo::all();
-       
-        return view('prestamo', compact('prestamos'));
+        $users = User::all();
+        return view('prestamo', compact('prestamos','users'));
     }
 
     public function create()
@@ -30,26 +30,10 @@ class PrestamoController extends Controller
      */
     public function create_action (Request $request)
     {
-        $request->validate([
-            'ID_Prestamo' => 'required',
-            'fecha' => 'required',
-            'hora' => 'required',
-            'fecha_devolucion' => 'required',
-            'user_id' =>'required',
-            
-        ]);
-        $prestamos = new prestamo([
-            'ID_Prestamo' => $request->ID_Prestamo,
-            'fecha' => $request->fecha,
-            'hora' => $request->hora,
-            'fecha_devolucion' => $request->fecha_devolucion,
-            'user_id' => $request->user_id,
-        ]);
 
-
-        $prestamos->save();
-        return redirect()->route('prestamo')->with('success', 'Registration success. Please login!');
-        
+        $prestamos = new prestamo($request ->input());
+        $prestamos->saveOrFail();
+        return redirect('prestamo');
 
     }
 
@@ -86,15 +70,8 @@ class PrestamoController extends Controller
     public function update(Request $request, $id)
     {
         $prestamo = prestamo::find($id);
-
-        $prestamo->ID_Prestamo = $request->get('ID_prestamo');
-        $prestamo->fecha = $request->get('fecha');
-        $prestamo->hora = $request->get('hora');
-        $prestamo->fecha_devolucion= $request->get('fecha_devolucion');
-        $prestamo->user_id = $request->get('user_id');
+        $prestamo->fill($request->input())->saveOrFail();
         
-
-        $prestamo->save();
 
         return redirect('/prestamo');
     }
