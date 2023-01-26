@@ -16,9 +16,10 @@ return new class extends Migration
         Schema::create('Prestamo', function (Blueprint $table) {
             $table->comment('');
             $table->integer('ID_Prestamo', true);
-            $table->date('fecha')->nullable();
-            $table->time('hora')->nullable();
-            $table->date('fecha_devolucion')->nullable();
+            $table->date('fecha_solicitud')->nullable();
+            $table->date('fecha_recepcion')->nullable();
+            $table->time('hora_recepcion', $precision = 0)->nullable();
+            $table->dateTime('fecha_devolucion')->nullable();
             $table->timestamps();
             $table->bigInteger('user_id')->index('user_id')->nullable();
         });

@@ -10,7 +10,7 @@ class prestamo extends Model
     use HasFactory;
     protected $table = 'Prestamo';
     protected $primaryKey = 'ID_Prestamo';
-    protected $fillable = ['fecha','hora', 'fecha_devolucion','user_id','timestamps'];
+    protected $fillable = ['fecha_solicitud','fecha_recepcion','hora_recepcion', 'fecha_devolucion','user_id','timestamps'];
 
 
 }

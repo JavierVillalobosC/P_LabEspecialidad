@@ -17,9 +17,10 @@
                     <tr>
                         <th>#</th>
                         <th>ID</th>
-                        <th>fecha</th>
-                        <th>hora</th>
-                        <th>fecha de devolucion</th>
+                        <th>fecha de solicitud</th>
+                        <th>fecha de recepción</th>
+                        <th>hora de recepción</th>
+                        <th>fecha de devolución</th>
                         <th>Encargado</th>
                         <th>Editar</th>
                         <th>Eliminar</th>
@@ -31,12 +32,16 @@
                     <tr>
                         <td>{{ $i++ }}</td>
                         <td>{{ $row->ID_Prestamo}}</td>
-                        <td>{{ $row->fecha }}</td>
-                        <td>{{ $row->hora }}</td>
+                        <td>{{ $row->fecha_solicitud }}</td>
+                        <td>{{ $row->fecha_recpcion }}</td>
+                        <td>{{ $row->hora_recepcion }}</td>
                         <td>{{ $row->fecha_devolucion }}</td>
-                        <td>{{ $row->user_id }}</td>
-                        <a href="{{ url('prestamo',[$row]) }}" class="btn btn-warning"><i
-                                class="fa-solid fa-edit"></i></a>
+                        @foreach($users as $row)
+                        <td value="{{ $row->user_id }}">{{ $row->name }}</td>
+                        @endforeach
+                        <td>
+                            <a href="{{ url('prestamo',[$row]) }}" class="btn btn-warning"><i
+                                    class="fa-solid fa-edit"></i></a>
                         </td>
                         <td>
                             <form method="POST" action="{{ url('prestamo', [$row]) }}">
@@ -62,26 +67,30 @@
             <div class="modal-body">
                 <form id="frmPrestamo" method="POST" action="{{url("prestamo")}}">
                     @csrf
-                    
                     <div class="input-group mb-3">
-                        <span class="input-group-text"><i class="fa-solid fa-laptop"></i></span>
-                        <input type="date" name="prestamo" class="form-control" maxlength="50" placeholder="Fecha"
-                            required>
+                        <span class="input-group-text"><i class="fa-solid fa-calendar"></i></span>
+                        <input type="date" name="fecha" class="form-control" maxlength="50"
+                            placeholder="Fecha de solicitud" required>
                     </div>
                     <div class="input-group mb-3">
-                        <span class="input-group-text"><i class="fa-solid fa-laptop"></i></span>
-                        <input type="time" name="estado" class="form-control" maxlength="50" placeholder="Hora"
-                            required>
+                        <span class="input-group-text"><i class="fa-solid fa-calendar"></i></span>
+                        <input type="date" name="fecha" class="form-control" maxlength="50"
+                            placeholder="Fecha de recepción" required>
                     </div>
                     <div class="input-group mb-3">
-                        <span class="input-group-text"><i class="fa-solid fa-laptop"></i></span>
-                        <input type="date" name="estado" class="form-control" maxlength="50" placeholder="Fecha de devolución"
-                            required>
+                        <span class="input-group-text"><i class="fa-solid fa-clock"></i></span>
+                        <input type="time" name="hora" class="form-control" maxlength="50"
+                            placeholder="Hora de recepción" required>
                     </div>
                     <div class="input-group mb-3">
-                        <span class="input-group-text"><i class="fa-solid fa-laptop"></i></span>
-                        <input type="integer" name="estado" class="form-control" maxlength="50" placeholder="Encargado"
-                            required>
+                        <span class="input-group-text"><i class="fa-solid fa-calendar"></i></span>
+                        <input type="datetime-local" name="fecha" class="form-control" maxlength="50"
+                            placeholder="Fecha de devolución" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="fa-solid fa-person"></i></span>
+                        <input type="integer" name="persona" class="form-control" maxlength="50"
+                            placeholder="Encargado" required>
                     </div>
                     <div class="d-grid col-6 mx-auto">
                         <button class="btn btn-success"><i class="fa-solid fa-floppy-disk>"></i> Guardar </button>
