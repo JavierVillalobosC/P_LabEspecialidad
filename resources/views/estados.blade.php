@@ -18,7 +18,7 @@
     <div class="row mt-3">
         <div class="col-12 col-lg-8 offset-0 offset-lg-2">
             <div class="table-responsive">
-                <table class="table table-bordered table-hover">
+                <table id="estados" class="table table-bordered table-hover">
                     <thead><tr><th>#</th><th>ESTADO</th><th>EDITAR</th><th>ELIMINAR</th></tr></thead>
                     <tbody class="table-group-divider">
                         @php $i=1; @endphp
